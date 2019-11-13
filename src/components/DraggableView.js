@@ -24,11 +24,11 @@ type Props = {
 export default class DraggableView extends Component<Props> {
   static defaultProps = {
     style: null,
-    onMove: () => {},
-    onSwiping: () => {},
-    onSwipingOut: () => {},
+    onMove: () => { },
+    onSwiping: () => { },
+    onSwipingOut: () => { },
     onSwipeOut: null,
-    onRelease: () => {},
+    onRelease: () => { },
     swipeThreshold: 100,
     swipeDirection: [],
   };
@@ -145,7 +145,7 @@ export default class DraggableView extends Component<Props> {
     onPanResponderMove: (event, gestureState) => {
       const isVerticalSwipe = d => ['up', 'down'].includes(d);
       const isHorizontalSwipe = d => ['left', 'right'].includes(d);
-      
+
       const newSwipeDirection = this.getSwipeDirection(gestureState);
       const isSameDirection =
         isVerticalSwipe(this.currentSwipeDirection) === isVerticalSwipe(newSwipeDirection) ||
@@ -212,7 +212,6 @@ export default class DraggableView extends Component<Props> {
 
     return (
       <Animated.View
-        {...this.panResponder.panHandlers}
         style={style}
       >
         {content}
